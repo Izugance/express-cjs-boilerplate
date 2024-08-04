@@ -2,8 +2,10 @@
 
 const { StatusCodes } = require("http-status-codes");
 
-module.exports = (err, req, res, next) => {
+function controllerErrorHandler(err, req, res, next) {
   const error = {
-    // Fill.
+    // NOTE: Fill me.
   };
-};
+}
+
+module.exports = { controllerErrorHandler };
