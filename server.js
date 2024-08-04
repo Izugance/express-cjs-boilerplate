@@ -17,6 +17,11 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 
 // -----Project packages.-----
+const { userAuthMiddleware } = require("./middleware/auth.js");
+const {
+  controllerErrorHandler,
+} = require("./middleware/controller-error-handler.js");
+const { endpoint404Handler } = require("./middleware/endpoint-not-found.js");
 
 // -----App setup.-----
 const app = express();
@@ -30,8 +35,8 @@ function initPreRouteMiddleware() {
 
   app.use(helmet());
   app.use(cors());
-  
-  app.use(cookieParser())
+
+  app.use(cookieParser());
   app.use(
     session({
       // NOTE: Edit this to match your env variable name.
@@ -55,7 +60,9 @@ function initRoutes() {
 
 // -----Post-route middleware.-----
 function initPostRouteMiddleware() {
-  // Do me.
+  // NOTE: Ensure `controllerErrorHandler` has been implemented.
+  app.use(controllerErrorHandler);
+  app.use(endpoint404Handler);
 }
 
 // -----Server setup.-----
