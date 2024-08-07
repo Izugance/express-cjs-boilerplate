@@ -76,7 +76,7 @@ const server = createServer(app);
 
 const PORT = process.env.PORT || 3000;
 
-const serve = async () => {
+const runServer = async (server) => {
   try {
     // NOTE: Add a database connection call here:
     // connect_to_DB();
@@ -92,4 +92,4 @@ const serve = async () => {
   }
 };
 
-serve();
+module.exports = { server, runServer };
