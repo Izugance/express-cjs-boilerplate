@@ -7,7 +7,6 @@ const { createServer } = require("node:http");
 // const fs = require("fs");
 
 // -----Third-party packages.-----
-require("dotenv").config();
 const express = require("express");
 const asyncHandler = require("express-async-handler");
 const bodyParser = require("body-parser");
