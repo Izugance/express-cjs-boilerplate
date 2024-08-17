@@ -6,7 +6,8 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "test": "jest",
+    "test": "jest -i --",
+    "test:byPath": "jest --runTestsByPath --",
     "start": "node bin/www.js",
     "dev": "nodemon bin/www.js"
   },
@@ -21,6 +22,7 @@
     "express": "^4.19.2",
     "express-async-handler": "^1.2.0",
     "express-session": "^1.18.0",
+    "express-validator": "^7.2.0",
     "helmet": "^7.1.0",
     "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.2"
